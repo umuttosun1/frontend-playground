@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaArrowRight } from "react-icons/fa6";
+import { FaExchangeAlt } from "react-icons/fa";
 import "../css/currency.css";
 import axios from "axios";
 
@@ -24,6 +24,12 @@ function Currency() {
     }
   };
 
+  const reverse = async () => {
+    let a = result;
+    setResult(amount);
+    setAmount(a);
+  };
+
   return (
     <div>
       <div className="currency-main">
@@ -35,9 +41,7 @@ function Currency() {
             borderRadius: "5px",
           }}
         >
-          <h3 style={{ fontFamily: "arial", color: "#fff" }}>
-            DÖVİZ KURU UYGULAMASI
-          </h3>
+          <h3 style={{ fontFamily: "arial", color: "#fff" }}>CURRENCY APP</h3>
         </div>
 
         <div style={{ marginTop: "20px" }}>
@@ -55,8 +59,20 @@ function Currency() {
             <option>USD</option>
             <option>EUR</option>
             <option>TRY</option>
+            <option>CNY</option>
+            <option>KRW</option>
+            <option>BRL</option>
+            <option>RUB</option>
+            <option>JPY</option>
           </select>
-          <FaArrowRight style={{ marginRight: "10px" }} />
+          <FaExchangeAlt
+            style={{
+              marginRight: "10px",
+              cursor: "pointer",
+              border: "1px solid black",
+            }}
+            onClick={reverse}
+          />
 
           <select
             onChange={(e) => setToCurrency(e.target.value)}
@@ -65,6 +81,11 @@ function Currency() {
             <option>TRY</option>
             <option>USD</option>
             <option>EUR</option>
+            <option>CNY</option>
+            <option>KRW</option>
+            <option>BRL</option>
+            <option>RUB</option>
+            <option>JPY</option>
           </select>
 
           <input
@@ -81,7 +102,7 @@ function Currency() {
               width: "100px",
               height: "30px",
               border: "none",
-              backgroundColor: "green",
+              backgroundColor: "blue",
               color: "#fff",
               cursor: "pointer",
               borderRadius: "5px",
